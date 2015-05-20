@@ -1,0 +1,7 @@
+{% load staticfiles %}
+
+<h1>{{ article.title }}</h1>
+<div> {{ article.pub_date }} | <a href="#">{{ article.author }}</a></div>
+<br>
+<img src="/media/{{ article.hero_img }}" width="400">
+<div>{{ article.description }}</div>
