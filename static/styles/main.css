@@ -31,3 +31,7 @@ hr {
   border: 0;
   border-top: 1px solid #cecece;
 }
+
+art_desc{
+    text-align: justify;text-justify: inter-word;
+}

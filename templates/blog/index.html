@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                          <h4 class=""><a href="{% url 'description' article.id %}">{{article.title}}</a></h4>
 
-                        <span class="pull-right">{{ article.pub_date | date }}</span>
+                        <!--<span class="pull-right">{{ article.pub_date | date }}</span>-->
                         <p>{{ article.description | truncatewords:80 }}</p>
                         <p><a href="{% url 'description' article.id %}">Read full</a></p>
                     </div>

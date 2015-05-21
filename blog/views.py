@@ -19,7 +19,7 @@ def index(request):
     template = 'blog/index.html'
     random_idx = random.randint(0, Articles.objects.count() - 1)
     random_obj = Articles.objects.all()[random_idx]
-    context_obj = {'rand_article': random_obj, 'articles': Articles.objects.all()}
+    context_obj = {'rand_article': random_obj, 'articles': Articles.objects.all().order_by('-pub_date')}
     return render(request, template, context_obj)
 
 
