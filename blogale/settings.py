@@ -79,6 +79,7 @@ TEMPLATE_DIRS = [
 TEMPLATE_CONTEXT_PROCESSORS = (
     'blog.context_processors.related_articles',
     'django.contrib.auth.context_processors.auth',
+    'blog.context_processors.random_article_id',
 )
 
 # Internationalization

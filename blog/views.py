@@ -17,9 +17,10 @@ class IndexView(generic.ListView):
 
 def index(request):
     template = 'blog/index.html'
-    random_idx = random.randint(0, Articles.objects.count() - 1)
-    random_obj = Articles.objects.all()[random_idx]
-    context_obj = {'rand_article': random_obj, 'articles': Articles.objects.all().order_by('-pub_date')}
+    random_idx = random.randint(0, Articles.objects.filter(is_published='True').count() - 1)
+    random_obj = Articles.objects.all().filter(is_published='True')[random_idx]
+    context_obj = {'rand_article': random_obj, 'articles': Articles.objects.all().order_by('-pub_date')
+        .filter(is_published='True')}
     return render(request, template, context_obj)
 
 
