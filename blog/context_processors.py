@@ -3,6 +3,10 @@ import random
 
 
 def related_articles(request):
+    '''
+    :param request:
+    :return: returns 4 random articles from published articles
+    '''
     # last = Articles.objects.count() - 1
     # index1 = random.randint(0, last)
     # index2 = random.randint(0, last - 1)
@@ -14,6 +18,10 @@ def related_articles(request):
 
 
 def random_article_id(request):
+    '''
+    :param request:
+    :return: returns a random article id from published articles
+    '''
     a = Articles.objects.all().filter(is_published='True')
     arr = []
     for article in a:

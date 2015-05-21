@@ -1,21 +1,15 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.views import generic
 
 from blog.models import Articles
 import random
 
 
-class IndexView(generic.ListView):
-    template_name = 'blog/index.html'
-    context_object_name = 'articles'
-
-    def get_queryset(self):
-        return Articles.objects.all()
-
-
 def index(request):
+    '''
+    serves all request to the index page.
+    :param request: request object
+    :return: list of all published articles
+    '''
     template = 'blog/index.html'
     random_idx = random.randint(0, Articles.objects.filter(is_published='True').count() - 1)
     random_obj = Articles.objects.all().filter(is_published='True')[random_idx]
@@ -23,12 +17,18 @@ def index(request):
         .filter(is_published='True')}
     return render(request, template, context_obj)
 
-
-class DescriptionView(generic.DetailView):
-    model = Articles
-    template = 'blog/description.html'
+#
+# class DescriptionView(generic.DetailView):
+#     model = Articles
+#     template = 'blog/description.html'
 
 
 def description(request, article_id):
+    '''
+    retrieves details of an article, retrieves by article_id from the database
+    :param request: request object
+    :param article_id: article_id of the article to get.
+    :return: an Article object with the article_id
+    '''
     article = get_object_or_404(Articles, pk=article_id)
     return render(request, 'blog/description.html', {'article': article})
