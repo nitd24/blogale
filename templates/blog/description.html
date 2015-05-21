@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block articles %}
+
+
+<div class="col-md-9">
+        {% if article %}
+            <div class="">
+                 <h1><a href="{% url 'description' article.id %}" title="{{ article.title}}"> {{ article.title}}</a> </h1>
+                    <p>{{ article.pub_date|date:"l, F dS,o" }} | <a href="#">{{ article.author }}</a> </p>
+                <center><img class="img-responsive" style="max-height:300px" src="/media/{{ article.hero_img }}"/></center>
+                <div class="caption-full">
+
+
+                    <p>
+                        {{ article.description }}
+                    </p>
+                </div>
+            </div>
+    {% else %}
+        <p>No articles are available.</p>
+        {% endif %}
+
+        </div>
+
+{% endblock %}

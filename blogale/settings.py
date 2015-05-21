@@ -76,6 +76,10 @@ TEMPLATE_DIRS = [
     TEMPLATE_PATH,
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'blog.context_processors.related_articles',
+    'django.contrib.auth.context_processors.auth',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

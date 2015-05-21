@@ -1,0 +1,56 @@
+{% extends 'blog/base.html' %}
+{% block articles %}
+
+
+
+
+<div class="col-md-9">
+        {% if rand_article %}
+            <div class="thumbnail">
+                 <h2><a href="{% url 'description' rand_article.id %}" title="{{ rand_article.title}}"> {{ rand_article.title}}</a> </h2>
+                    <p>{{ rand_article.pub_date|date:"l, F dS,o" }} | <a href="#">{{ rand_article.author }}</a> </p>
+                <img class="img-responsive" style="height:300px" src="/media/{{ rand_article.hero_img }}"/>
+                <div class="caption-full">
+
+
+                    <p>
+                        {{ rand_article.description | truncatewords:150}}
+                    </p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right"></p>
+                    <p>
+                        <a href="{% url 'description' rand_article.id %}">Read full article</a>
+
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+
+            <div class="well">
+
+                 {% if articles %}
+                 {% for article in articles%}
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                         <h4 class=""><a href="{% url 'description' article.id %}">{{article.title}}</a></h4>
+
+                        <span class="pull-right">{{ article.pub_date | date }}</span>
+                        <p>{{ article.description | truncatewords:80 }}</p>
+                        <p><a href="{% url 'description' article.id %}">Read full</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+ {% else %}
+        <p>No articles are available.</p>
+    {% endif %}
+
+
+
+
+            </div>
+
+        </div>
+{% endblock %}
