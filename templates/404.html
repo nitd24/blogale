@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not found</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet">
+
+    <style>
+        .error_page {
+          width: 600px;
+          padding: 50px;
+          margin: auto;
+            margin-left:0px;
+        }
+
+        .error_page h1 {
+              margin: 20px 0 0;
+              text-align: center;
+        }
+
+        .error_page p {
+          margin: 10px 0;
+          padding: 0;
+          text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog">BLOGALE</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="{% url 'description' random_article_id %}">Random</a>
+                </li>
+                <li>
+                    <a href="#">Dummy</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-1">
+            <!--<p class="lead"></p>-->
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <span class="glyphicon glyphicon-tasks" style="margin-left:-5px"></span>
+                    &nbsp;
+                    <span class="glyphicon glyphicon-search" style="margin-right:-5px"></span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <span class="glyphicon glyphicon-book"></span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <span class="glyphicon glyphicon-comment"></span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <span class="glyphicon glyphicon-globe"></span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <span class="glyphicon glyphicon-piggy-bank"></span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <span class="glyphicon glyphicon-phone-alt"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-11">
+            <div class="error_page">
+                <img alt="not found" src="/media/images/404.jpg">
+                <h1>I am sorry...</h1>
+                <p>I am unable to find the page you are looking for :(</p>
+                <p><a href="/">Return to the homepage</a></p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="container">
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright © Blogale 2015</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body>
+
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="/media/images/404.jpg">
+</body>
+</html>-->

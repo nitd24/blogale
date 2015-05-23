@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '&qkm#!t(%^hw6xwd4(f4%bx$bkg=q^xqek-ebx9d0(^8ti@50t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -77,6 +77,7 @@ TEMPLATE_DIRS = [
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.static',
     'blog.context_processors.related_articles',
     'django.contrib.auth.context_processors.auth',
     'blog.context_processors.random_article_id',
@@ -98,7 +99,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+PROJECT_ROOT = os.path.dirname(__file__)
+
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+
+STATIC_ROOT = 'staticfiles'
 
 STATIC_URL = '/static/'
 
@@ -106,6 +111,13 @@ STATICFILES_DIRS = (
     STATIC_PATH,
     os.path.join(BASE_DIR, "templates"),
 )
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
 
 #Media files
 MEDIA_URL = '/media/'

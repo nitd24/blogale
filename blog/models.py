@@ -7,7 +7,7 @@ class Articles(models.Model):
     pub_date = models.DateTimeField('date published')
     category = models.CharField(max_length=100)
     hero_img = models.ImageField(upload_to='hero_images')
-    secondary_img = models.ImageField(upload_to='hero_images', blank=True)
+    secondary_img = models.ImageField(upload_to='secondary_images', blank=True)
     description = models.TextField()
     is_published = models.BooleanField(default=False)
 

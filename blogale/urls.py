@@ -5,7 +5,7 @@ from django.conf import settings
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'blogale.views.home', name='home'),
-    #url(r'^$', include('blog.urls')),
+    url(r'^$', include('blog.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
@@ -18,4 +18,5 @@ if settings.DEBUG:
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.STATIC_ROOT,
         }),
-)
+    )
+
