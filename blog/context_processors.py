@@ -1,5 +1,6 @@
 from blog.models import Articles
 import random
+import ipdb
 
 
 def related_articles(request):
