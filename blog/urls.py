@@ -9,4 +9,6 @@ urlpatterns = patterns('',
 
                        url(r'^$', views.index, name='index'),
                        #url(r'^aa(?P<article_id>\d+)/$', views.description, name='description'),
+
+                       url(r'^search/$', views.search, name='search')
 )

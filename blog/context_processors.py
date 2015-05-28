@@ -8,24 +8,14 @@ def related_articles(request):
     :param request:
     :return: returns 4 random articles from published articles
     '''
-    # last = Articles.objects.count() - 1
-    # index1 = random.randint(0, last)
-    # index2 = random.randint(0, last - 1)
-    # if index2 == index1: index2 = last
-    #
-    # MyObj1 = Articles.objects.all()[index1]
-    # MyObj2 = Articles.objects.all()[index2]
-    return {'related_articles': Articles.objects.all().filter(is_published='True').order_by('?')[:4]}
+    no_of_articles = Articles.objects.count()
 
+    # checking if we have enough number of articles, else randomize the available articles
 
-def random_article_id(request):
-    '''
-    :param request:
-    :return: returns a random article id from published articles
-    '''
-    a = Articles.objects.all().filter(is_published='True')
-    arr = []
-    for article in a:
-        arr.append(article.id)
+    if no_of_articles > 4:
+        list_of_ids = random.sample(range(1, no_of_articles), 4)
+    else:
+        list_of_ids = random.sample(range(1, no_of_articles), no_of_articles)
 
-    return {'random_article_id': random.choice(arr)}
+    return {'related_articles': Articles.objects.filter(pk__in=list_of_ids)}
+

@@ -44,3 +44,7 @@ def description(request, article_id):
     article = get_object_or_404(Articles, pk=article_id)
 
     return render(request, 'blog/description.html', {'article': article})
+
+
+def search(request):
+    return render(request, 'blog/search.html', {})
