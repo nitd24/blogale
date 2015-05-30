@@ -53,7 +53,6 @@ ROOT_URLCONF = 'blogale.urls'
 
 WSGI_APPLICATION = 'blogale.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -67,7 +66,6 @@ DATABASES = {
         'PASSWORD': 'vinson24',
     }
 }
-
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
@@ -122,3 +120,8 @@ STATICFILES_FINDERS = (
 MEDIA_URL = '/media/'
 # Absolute path to the media directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+ELASTICSEARCH_TYPE_CLASSES = [
+    'blog.models.Articles'
+]
