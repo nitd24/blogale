@@ -10,13 +10,10 @@ def related_articles(request):
     '''
     no_of_articles = Articles.objects.count()
 
-    if no_of_articles == 0:
-        return {}
-
     if no_of_articles > 4:
         list_of_ids = random.sample(range(1, no_of_articles), 4)
     else:
-        list_of_ids = random.sample(range(0, no_of_articles), no_of_articles)
+        list_of_ids = random.sample(range(1, no_of_articles), no_of_articles)
 
     return {'related_articles': Articles.objects.filter(pk__in=list_of_ids)}
 
