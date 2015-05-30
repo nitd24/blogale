@@ -1,0 +1,74 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block articles %}
+<div class="col-md-11" style="padding-bottom:10px;">
+    <h2 style="margin-top:0px">Search for an article:</h2>
+    <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input id="searchBox" type="text" class="search-query form-control" placeholder="Keywords or search text.." />
+                    <span class="input-group-btn">
+                        <button id="searchBtn" class="btn btn-danger" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+        </div>
+    </div>
+    <div style="min-height:200px; margin-top:20px">
+
+        <!-- dummy results -->
+        <div class="well" style="display:none;">
+
+            <span id="searchQuery"></span>
+            <div id="searchResults">
+            <!--<hr>
+
+            <div class="row">
+                <div class="col-md-1"><span class="glyphicon glyphicon-hand-right"></span></div>
+                <div class="col-md-11">
+                    <h4 style="margin-top:0px"><a href="/blog/6/">Prost</a></h4>
+
+                    &lt;!&ndash;<span class="pull-right">May 22, 2015</span>&ndash;&gt;
+                    <p>Imagine your craft beer in tall glasses with just the right crispness and flavor! Then Prost is the right place for you. The place boasts of 6 regular varietals – Apple Cider, Prost Special, Jonas’ Fave, Wheat Beer, Irish Red and Stout. Occasionally they even have the not-so-great but different Chocolate Beer as well. The huge glasses of beer and generous portions of food will surely make this place into your diaries. The best part about this place is – ...</p>
+                    <p><a href="/blog/6/">Read more...</a></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-1"><span class="glyphicon glyphicon-hand-right"></span></div>
+                <div class="col-md-11">
+                    <h4 style="margin-top:0px"><a href="/blog/5/">Bummer alert: there's a virus in this awesome GTA 5 mod</a></h4>
+
+                    &lt;!&ndash;<span class="pull-right">May 20, 2015</span>&ndash;&gt;
+                    <p>Now that Grand Theft Auto 5 is available on PC, it only makes sense that you should play with as many mods as your rig can handle. But beware: some users are reporting that not all mods are created equal. In fact, there's one that might install a virus on your computer. Some GTA V players are having all their fun spoiled by a virus-ridden mod. But with so many mods available, which is the culprit? None other than the ...</p>
+                    <p><a href="/blog/5/">Read more...</a></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-1"><span class="glyphicon glyphicon-hand-right"></span></div>
+                <div class="col-md-11">
+                    <h4 style="margin-top:0px"><a href="/blog/4/">Fove's eye-tracking headset solves one of VR's biggest headaches, hits Kickstarter</a></h4>
+
+                    &lt;!&ndash;<span class="pull-right">May 20, 2015</span>&ndash;&gt;
+                    <p>Last year we reported that Fove, the world's first reality headset to also feature eye-tracking technology, had been accepted into Microsoft's Ventures Programme - with possible interest from Microsoft in using the tech for its own VR efforts. Then HoloLens happened and Fove remained very much its own thing. Today, Fove is taking the next step forward with a Kickstarter campaign that will (hopefully) bring the headset to market. FOVE combines a 2560x1440 VR display with eye-tracking and motion-tracking technology. ...</p>
+                    <p><a href="/blog/4/">Read more...</a></p>
+                </div>
+            </div>-->
+
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+        <!-- dummy results -->
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'js/search.js' %}" type="text/javascript"></script>
+{% endblock %}

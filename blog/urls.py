@@ -12,3 +12,5 @@ urlpatterns = patterns('',
 
                        url(r'^search/$', views.search, name='search')
 )
+
+handler404 = "blog.views.error404"

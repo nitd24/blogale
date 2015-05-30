@@ -121,7 +121,11 @@ MEDIA_URL = '/media/'
 # Absolute path to the media directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#
+# ELASTICSEARCH_TYPE_CLASSES = [
+#     'blog.models.Articles'
+# ]
 
-ELASTICSEARCH_TYPE_CLASSES = [
-    'blog.models.Articles'
-]
+ELASTICSEARCH_URL = 'http://localhost:9200'
+ELASTICSEARCH_AUTO_INDEX = True
+ELASTICSEARCH_DEFAULT_INDEX = 'blog'
