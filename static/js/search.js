@@ -49,6 +49,8 @@ function getSearchResults(){
             }
         },
         error : function(e){
+            $('.well').show();
+            $('#searchResults').html("Some error occurred. Please contact the admin.");
             console.log("ERROR ::: " + JSON.stringify(e));
         }
     });
