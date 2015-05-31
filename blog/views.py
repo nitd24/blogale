@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404, HttpResponseNotFound
 from blog.models import Articles
 import random
-
+import ipdb
 
 def index(request):
     '''
@@ -42,9 +42,6 @@ def description(request, article_id):
     :param article_id: article_id of the article to get.
     :return: an Article object with the article_id
     '''
-    if not article_id:
-        raise Http404
-
     article = get_object_or_404(Articles, pk=article_id)
 
     return render(request, 'blog/description.html', {'article': article})
@@ -55,4 +52,4 @@ def search(request):
 
 
 def error404(request):
-    HttpResponseNotFound("Page not found")
+    return render(request, '404.html', {})
