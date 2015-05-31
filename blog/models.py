@@ -19,6 +19,13 @@ class Articles(EsIndexable, models.Model):
     def __str__(self):
         return self.title
 
+    class Elasticsearch(EsIndexable.Elasticsearch):
+        mappings = {'title': {'boost': 2.0}}
+        fields = {
+            'title': {type: 'string'},
+            'description': {type: 'string'},
+            'category': {type: 'string'},
+        }
 
 #     @classmethod
 #     def get_queryset(cls):
