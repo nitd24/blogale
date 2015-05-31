@@ -29,7 +29,7 @@ function getSearchResults(){
          $('#searchQuery').html('Please enter a search term.');
         return false;
      }
-    $('#searchQuery').html('Showing results for : <strong>' +query + '</strong>');
+    //$('#searchQuery').html('Showing results for : <strong>' +query + '</strong>');
     var data = {
                 query:{match:{_all:query}}
             }
@@ -42,7 +42,7 @@ function getSearchResults(){
         success: function(res) {
             $('.well').show();
             if(res.hits.total > 0){
-                 $('#searchQuery').append(' | got ' + res.hits.total + ' results in ' + (res.took * 0.001) + ' seconds.');
+                 $('#searchQuery').html('Found ' + res.hits.total + ' result(s) for <strong>' +query + '</strong> in ' + (res.took * 0.001) + ' seconds.');
                 displayResults(res.hits);
             }else{
                 $('#searchResults').html("No results found.");
