@@ -1,5 +1,5 @@
 dj-static==0.0.6
-Django==1.7
+Django==1.11.23
 django-elasticsearch==0.3
 elasticsearch==1.5.0
 ipdb==0.8
